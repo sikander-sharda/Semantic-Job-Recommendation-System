@@ -24,8 +24,8 @@
 
 <p>A recruiter wants to select the best CVs which suit his job requirement. To do this, one need to semantically match the words mentioned by candidate in the resume to those mentioned in the job description and get the best candidates suitable for the job. We need to design a search engine which takes the requirements of the job such as the skills and the position as the input and outputs a ranked list of CV in order of their relevance to the opening.</p>
 
-<h1>
-<a id="applications" class="anchor" href="#applications" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Applications</h1>
+<h2>
+<a id="applications" class="anchor" href="#applications" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Applications</h2>
 
 <p>A particular job vacancy may receive huge number of applications.Manually sorting the CVs is practically impossible.Sorting out the suitable CVs from thousands(or possibly lakhs) of applications is a very challenging problem.We aim to build a system in which given a job title/description(query),the system can retrieve the suitable CVs(documents) and rank them according to some relevance measure .</p>
 
@@ -33,18 +33,28 @@
 
 <p>Similar recommendation systems has widely been used in various applications such as music, movie(Youtube), product(Flipkart,Amazon), computational advertisements,news articles recommendation systems,where a  new item is recommended by modelling the behaviour of past history of user selections.</p>
 
-<h1>
-<a id="procedure" class="anchor" href="#procedure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Procedure</h1>
-
 <h2>
-<a id="1extracting-the-text-" class="anchor" href="#1extracting-the-text-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1)Extracting the text :</h2>
+<a id="procedure" class="anchor" href="#procedure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Procedure</h2>
+
+<h3>
+<a id="1extracting-the-text-" class="anchor" href="#1extracting-the-text-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1)Extracting the text :</h3>
 
 <p>As most of the CV are in pdf formats, this becomes a major problem. Many modules do not convert the tables in pdf format properly into text files. This results in complication related to data of the individual. The most suitable module to perform this task is Java’s pdfbox which can convert table rows into simple lines in text format.</p>
 
-<h2>
-<a id="2applying-regex-to-retrieve-data-from-the-text-files" class="anchor" href="#2applying-regex-to-retrieve-data-from-the-text-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2)Applying regex to retrieve data from the text files:</h2>
+<h3>
+<a id="2applying-regex-to-retrieve-data-from-the-text-files" class="anchor" href="#2applying-regex-to-retrieve-data-from-the-text-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2)Applying regex to retrieve data from the text files:</h3>
 
 <p>Using simple techniques like  pattern matching and regex , we found the name, college, highest degree, phone number, email-id , etc of the individual. This knowledge helps us to recognise the individual. We also built a User-Interface in which a resume in pdf format was uploaded and it gave output as the information of the individual. This part was performed in the second deliverable.</p>
+
+<h3>
+<a id="3extracting-list-of-frameworks-languages-job-domains-modules-etc-" class="anchor" href="#3extracting-list-of-frameworks-languages-job-domains-modules-etc-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3)Extracting list of frameworks, languages, job domains, modules etc :</h3>
+
+<p>This helps us later to extract the terms using bag of words concepts from the text files of the CVs and can later be used to match them to the most suitable CV according to the job requirement given by the user.</p>
+
+<h3>
+<a id="4applying-tf-idf-method-on-the-parsed-cvs" class="anchor" href="#4applying-tf-idf-method-on-the-parsed-cvs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4)Applying tf-idf method on the parsed CVs:</h3>
+
+<p>After extracting all the (personal information and ) skills of the individual related to languages,frameworks,jobs, etc we need to apply tf-idf score to each of the terms using Scikit Library thus providing us with a ranked list of all the CVs corresponding to a job requirement query. The functionality is implemented on the terminal itself.This is implemented in the third deliverable.</p>
 
 <h3>
 <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
